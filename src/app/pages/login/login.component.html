@@ -1,0 +1,38 @@
+<h1>LOGIN</h1>
+<form ngNativeValidate #f='ngForm' (ngSubmit)="ingresar(f)" >
+  <div class="form-group">
+    <label for="exampleInputEmail1">Dirección de correo</label>
+    <input type="email"
+      [ngModel]="email"
+      name="email"
+      class="form-control" 
+      id="exampleInputEmail1" 
+      aria-describedby="emailHelp"
+      required>
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Contraseña</label>
+    <input type="password" 
+      ngModel
+      name="password"
+      class="form-control" 
+      id="exampleInputPassword1"
+      required>
+  </div>
+  <div class="form-check">
+    <input type="checkbox"
+      [(ngModel)]="recuerdame"
+      name="recuerdame"
+      class="form-check-input" 
+      id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+  </div>
+  <br>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Entrar</button>
+    <a [routerLink]="[ '/register']" class="btn btn-primary">Registro</a>
+    <button type="button" id="btnGoogle" class="btn btn-googleplus">Google</button>
+  </div>
+  
+</form>

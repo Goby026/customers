@@ -1,0 +1,282 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <form>
+          <div class="form-row">
+            <div class="col-10">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscador" aria-label="Search">
+            </div>
+            <div class="col-2">
+              <button class="btn btn-sm btn-outline-secondary text-right" type="button" (click)="clientPerspective()">
+                <i class="fas fa-exchange-alt"></i></button>
+              <button class="btn btn-sm btn-outline-secondary text-right" type="button" (click)="newClient()">
+                <i class="fas fa-user-plus"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <small class="text-right">{{valueTypeClient}}</small>
+
+        <table class="table">
+          <tbody>
+            <div *ngIf="typeClient; else elseBlock">
+              <tr *ngFor="let customer of customersN" class="cliente">
+                <div (click)="cliente(customer)">
+                  <th class="align-middle">
+                    <h3 style="color: crimson">{{ customer.inicial }}</h3>
+                  </th>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <h5>{{ customer.nombres }} {{ customer.apellidoPaterno }} {{ customer.apellidoMaterno }}
+                        </h5>
+                        <p class="card">
+                          {{ customer.direccion }} <br>
+                          {{ customer.dni }} <br>
+                          {{ customer.correo }}
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                </div>
+                <td class="align-middle">
+                  <div class="btn-group">
+                    <button class="btn bmd-btn-fab bmd-btn-fab-sm dropdown-toggle" type="button" id="ex3"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-angle-double-right"></i>
+                    </button>
+                    <div class="dropdown-menu  dropdown-menu-left" aria-labelledby="ex3">
+                      <button class="dropdown-item" type="button">COTIZAR</button>
+                      <button class="dropdown-item" type="button">MODIFICAR</button>
+                      <button class="dropdown-item" type="button">ELIMINAR</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </div>
+            <ng-template #elseBlock>
+              <tr *ngFor="let customerj of customersJ" class="cliente">
+                <div (click)="cliente(customerj)">
+                  <th class="align-middle">
+                    <h3 style="color: crimson">{{ customerj.inicial }}</h3>
+                  </th>
+                  <td>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <h5>{{ customerj.razonSocial }}</h5>
+                        <p class="card">
+                          {{ customerj.direccion }} <br>
+                          {{ customerj.ruc }} <br>
+                          {{ customerj.distrito }}
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                </div>
+                <td class="align-middle">
+                  <div class="btn-group">
+                    <button class="btn bmd-btn-fab bmd-btn-fab-sm dropdown-toggle" type="button" id="ex3"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-angle-double-right"></i>
+                    </button>
+                    <div class="dropdown-menu  dropdown-menu-left" aria-labelledby="ex3">
+                      <button class="dropdown-item" type="button">COTIZAR</button>
+                      <button class="dropdown-item" type="button">MODIFICAR</button>
+                      <button class="dropdown-item" type="button">ELIMINAR</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" style="background-color: #ffe7e3;">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <form>
+          <div class="form-row">
+            <div class="col-10">
+              <h5 class="text-center">{{ titleDescription }}</h5>
+            </div>
+            <div class="col-2">
+              <button class="btn btn-sm btn-outline-secondary text-right" type="button"><i
+                  class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form *ngIf="showClient">
+            <div *ngIf="typeClient; else sinoBlock">
+                <div class="form-group">
+                    <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                    <label for="formGroupExampleInput">NOMBRES</label>
+                    <input type="text" class="form-control" name="nombres" [(ngModel)]="client.nombres">
+                  </div>
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="formGroupExampleInput2">APELLIDOS</label>
+                    <input type="text" class="form-control" name="apellidoPaterno"
+                      [(ngModel)]="client.apellidoPaterno">
+                  </div>
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="formGroupExampleInput2">DNI</label>
+                    <input type="text" class="form-control" name="apellidoMaterno"
+                      [(ngModel)]="client.apellidoMaterno">
+                  </div>
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="formGroupExampleInput2">DIRECCION</label>
+                    <input type="text" class="form-control" name="direccion" [(ngModel)]="client.direccion">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="exampleSelect1">DEPARTAMENTO</label>
+                    <select class="form-control" id="exampleSelect1">
+                      <option>JUNIN</option>
+                      <option>MADRE DE DIOS</option>
+                      <option>LIMA</option>
+                      <option>LORETO</option>
+                      <option>JULIACA</option>
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="exampleSelect1">PROVINCIA</label>
+                    <select class="form-control" id="exampleSelect1">
+                      <option>HUANCAYO</option>
+                      <option>HUANCAVELICA</option>
+                      <option>SATIPO</option>
+                      <option>CHUPACA</option>
+                      <option>LA OROYA</option>
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="exampleSelect1">DISTRITO</label>
+                    <select class="form-control" id="exampleSelect1">
+                      <option>EL TAMBO</option>
+                      <option>HUANCAYO</option>
+                      <option>CHILCA</option>
+                      <option>PIO PATA</option>
+                      <option>LA RIVERA</option>
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="formGroupExampleInput2">FECHA DE NACIMIENTO</label>
+                    <input type="date" class="form-control" name="fechaNac" [(ngModel)]="client.fechaNac">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="formGroupExampleInput2">TELEFONO 01</label>
+                    <input type="text" class="form-control" name="telefono1" [(ngModel)]="client.telefono1">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="formGroupExampleInput2">TELEFONO 02</label>
+                    <input type="text" class="form-control" name="telefono2" [(ngModel)]="client.telefono2">
+                  </div>
+            </div>
+<ng-template #sinoBlock>
+                <div class="form-group">
+                    <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                    <label for="razonSocial">RAZON SOCIAL</label>
+                    <input type="text" class="form-control" name="razonSocial" [(ngModel)]="customer.razonSocial">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="ruc">RUC</label>
+                    <input type="text" class="form-control" name="ruc">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="dirJuridico">DIRECCION</label>
+                    <input type="text" class="form-control" name="dirJuridico">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="depJuridico">DEPARTAMENTO</label>
+                    <select class="form-control" id="depJuridico">
+                      <option>JUNIN</option>
+                      <option>MADRE DE DIOS</option>
+                      <option>LIMA</option>
+                      <option>LORETO</option>
+                      <option>JULIACA</option>
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="provJuridico">PROVINCIA</label>
+                    <select class="form-control" id="provJuridico">
+                      <option>HUANCAYO</option>
+                      <option>HUANCAVELICA</option>
+                      <option>SATIPO</option>
+                      <option>CHUPACA</option>
+                      <option>LA OROYA</option>
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="distJuridico">DISTRITO</label>
+                    <select class="form-control" id="distJuridico">
+                      <option>EL TAMBO</option>
+                      <option>HUANCAYO</option>
+                      <option>CHILCA</option>
+                      <option>PIO PATA</option>
+                      <option>LA RIVERA</option>
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="tipoCliente">TIPO DE CLIENTE</label>
+                    <select class="form-control" id="tipoCliente">
+                      <option>PRIVADO</option>
+                      <option>GOBIERNO</option>                
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <!-- manually specified -->
+                    <label for="webJuridico">WEB</label>
+                    <input type="text" class="form-control" name="webJuridico">
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="segJurico">SEGMENTO</label>
+                    <select class="form-control" id="segJurico">
+                      <option>SEGMENTO 1</option>
+                      <option>SEGMENTO 2</option>                
+                    </select>
+                  </div>
+      
+                  <div class="form-group bmd-form-group">
+                    <label for="sectorJuridico">SECTOR</label>
+                    <select class="form-control" id="sectorJuridico">
+                      <option>SECTOR 1</option>
+                      <option>SECTOR 2</option>                
+                    </select>
+                  </div>
+            </ng-template>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
