@@ -1,7 +1,10 @@
-<ul class="list-group">
+<ul class="list-group">  
+  
   <a [routerLink]="[ '/login']" class="list-group-item menus">Login</a>
+  <a [routerLink]="[ '/profile']" class="list-group-item menus">Perfil</a>
   <a [routerLink]="[ '/customers']" class="list-group-item menus">Clientes</a>
   <a [routerLink]="[ '/quotations']" class="list-group-item menus">Cotizaciones</a>
-  <a href="#" class="list-group-item menus active">Administración</a>
+  <!-- <a href="#" class="list-group-item menus active">Administración</a> -->
   <a (click)="cerrarSesion()" class="list-group-item menus pointer">Cerrar Sesión</a>
+  
 </ul>

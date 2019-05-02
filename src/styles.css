@@ -1,8 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
 *{
-    font-size: 13px;
+    font-size: 14px;
 }
 
 body{
     background-color: rgb(226, 226, 226);
+}
+
+.w150{
+    width: 150px;
 }

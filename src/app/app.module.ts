@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 //rutas
@@ -18,9 +18,13 @@ import { RegisterComponent } from './pages/register/register.component';
 
 //Servicios
 import { UsuarioService } from './services/usuario/usuario.service';
+import { SubirArchivoService } from './services/subir-archivo/subir-archivo.service';
 
 //Guards
 import { LoginGuardGuard } from './services/guards/login-guard.guard';
+import { ImagenPipe } from './pipes/imagen.pipe';
+import { ProfileComponent } from './pages/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -30,17 +34,21 @@ import { LoginGuardGuard } from './services/guards/login-guard.guard';
     NavComponent,
     CustomersComponent,
     NavVerticalComponent,
-    RegisterComponent
+    RegisterComponent,
+    ImagenPipe,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,    
     APP_ROUTING
   ],
   providers: [
     UsuarioService,
+    SubirArchivoService,
     LoginGuardGuard
   ],
   bootstrap: [AppComponent]

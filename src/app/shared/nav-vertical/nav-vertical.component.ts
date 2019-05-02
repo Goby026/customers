@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-nav-vertical',
@@ -8,7 +9,15 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 })
 export class NavVerticalComponent implements OnInit {
 
-  constructor(private usuarioService: UsuarioService) { }
+  usuario : Usuario;
+
+  constructor(private usuarioService: UsuarioService) {
+
+    this.usuario = usuarioService.usuario;
+
+    console.log( this.usuario );
+
+   }
 
   ngOnInit() {
   }
